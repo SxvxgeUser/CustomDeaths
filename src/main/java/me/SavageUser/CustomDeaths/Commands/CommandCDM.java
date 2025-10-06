@@ -65,6 +65,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm arrow " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -96,6 +97,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm cactus " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -127,6 +129,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm drowning " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -158,6 +161,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm explosion " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -189,6 +193,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm falling " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -220,6 +225,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm fire " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -251,6 +257,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm lava " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -282,6 +289,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm lightning " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -318,6 +326,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm player " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -349,6 +358,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm skeleton " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -380,6 +390,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm spider " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -411,6 +422,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm suffocation " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -442,6 +454,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm suicide " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -473,6 +486,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm void " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
@@ -504,6 +518,7 @@ public class CommandCDM implements CommandExecutor {
                                         if (msg.toLowerCase().contains(blacklist)) {
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.logFlaggedCMD(player, "/cdm zombie " + msg);
                                             //Todo: Future Implementation of ChatGuard
                                             return true;
                                         }
