@@ -2,7 +2,7 @@
 
 **Commands:**
 - /cdm (death-type) (message) - Edit a death message based on the death type inputed.
-- /cdm (death-type) reset - Edit a death message based on the death type inputed.
+- /cdm (death-type) reset - Reset a death message to its default message based on the death type inputed.
 - /cdmadmin addtoblacklist (character) - Add a word/character to the blacklist of disallowed words.
 - /cdmadmin delfromblacklist (character) - Remove a word/character from the blacklist of disallowed words.
 - /cdmadmin inspect (player) - Inspect all death messages of a player.
