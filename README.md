@@ -1,10 +1,10 @@
 # CustomDeaths
 
 **Commands:**
-- /cdm <death type> [message] - Edit a death message based on the death type inputed.
-- /cdm <death type> reset - Edit a death message based on the death type inputed.
-- /cdmadmin addtoblacklist - Add a word/character to the blacklist of disallowed words.
-- /cdmadmin delfromblacklist - Remove a word/character from the blacklist of disallowed words.
+- /cdm <death-type> <message> - Edit a death message based on the death type inputed.
+- /cdm <death-type> reset - Edit a death message based on the death type inputed.
+- /cdmadmin addtoblacklist <character> - Add a word/character to the blacklist of disallowed words.
+- /cdmadmin delfromblacklist <character> - Remove a word/character from the blacklist of disallowed words.
 - /cdmadmin inspect <player> - Inspect all death messages of a player.
 - /cdmadmin reload - Reloads all config files. (blacklist.yml, config.yml, player-data.yml)
 
