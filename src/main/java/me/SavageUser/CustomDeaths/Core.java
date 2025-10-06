@@ -13,7 +13,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Core extends JavaPlugin implements Listener {
@@ -22,11 +25,22 @@ public class Core extends JavaPlugin implements Listener {
     public BlacklistCFG blacklistCFG;
     public PlayerDataCFG playerDataCFG;
 
+    private File logFile;
+    private FileWriter logWriter;
+
     @Override
     public void onEnable() {
         this.mainCFG = new Config(new File(this.getDataFolder(), "config.yml"));
         this.blacklistCFG = new BlacklistCFG(new File(this.getDataFolder(), "blacklist.yml"));
         this.playerDataCFG = new PlayerDataCFG(new File(this.getDataFolder(), "player-data.yml"));
+
+        logFile = new File(this.getDataFolder(), "logs.yml");
+        try {
+            logWriter = new FileWriter(logFile, true); // true for append mode
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
         List<String> blacklisted = this.blacklistCFG.getStringList("Blacklist", new ArrayList<>());
 
         for (String blacklist : blacklisted) {
@@ -45,6 +59,13 @@ public class Core extends JavaPlugin implements Listener {
 
     @Override
     public void onDisable() {
+        try {
+            if (logWriter != null) {
+                logWriter.close();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 //  Creation Method
     public void createSettings(Player player) {
@@ -97,6 +118,21 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
 //  Blacklist Methods
+
+
+
+//  Log Flagged Commands
+    public void logFlaggedCMD(Player player, String message) {
+        try {
+            // Add a timestamp for each logged command
+            String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+            logWriter.write("[" + timestamp + "] " + player.getName() + "> " + message + "\n");
+            logWriter.flush(); // Flush to write immediately to the file
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+//  Log Flagged Commands
 
 
 
