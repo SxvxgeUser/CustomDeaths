@@ -11,5 +11,5 @@
 **Permissions:**
 
 `CustomDeaths.CDM` - Permission to use /cdm to change death messages.
-`StaffChannel.Admin` - Permission to use all /cdmadmin commands.
-`StaffChannel.Staff` - Permission to use only /cdmadmin inspect. Useful for mods to find out who has a explicit death message.
+`CustomDeaths.Admin` - Permission to use all /cdmadmin commands.
+`CustomDeaths.Staff` - Permission to use only /cdmadmin inspect. Useful for mods to find out who has a explicit death message.
