@@ -69,23 +69,23 @@ public class Core extends JavaPlugin implements Listener {
     }
 //  Creation Method
     public void createSettings(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) == null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) == null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_ARROW", "§8%player% §7was gunned down.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_CACTUS", "§8%player% §7hugged a cactus.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_DROWNING", "§8%player% §7forgot to breath.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_EXPLOSION", "§8%player% §7was hit too hard.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_FALLING", "§8%player% §7forgot their shoes.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_FIRE", "§8%player% §7was too hot.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_LAVA", "§8%player% §7was too hot.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_LIGHTNING", "§8%player% §7was struck by lightning.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_PLAYER", "§8%player% §7was brutally murdered by §8%killer%§7.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_SKELETON", "§8%player% §7was gunned down.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_SPIDER", "§8%player% §7was hit too hard.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_SUFFOCATION", "§8%player% §7forgot to breath.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_SUICIDE", "§8%player% §7killed themselves.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_VOID", "§8%player% §7fell out of the world.");
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_ZOMBIE", "§8%player% §7was munched on by a Zombie.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_ARROW", "§8%player% §7was gunned down.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_CACTUS", "§8%player% §7hugged a cactus.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_DROWNING", "§8%player% §7forgot to breath.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_EXPLOSION", "§8%player% §7was hit too hard.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_FALLING", "§8%player% §7forgot their shoes.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_FIRE", "§8%player% §7was too hot.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_LAVA", "§8%player% §7was too hot.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_LIGHTNING", "§8%player% §7was struck by lightning.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_PLAYER", "§8%player% §7was brutally murdered by §8%killer%§7.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_SKELETON", "§8%player% §7was gunned down.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_SPIDER", "§8%player% §7was hit too hard.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_SUFFOCATION", "§8%player% §7forgot to breath.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_SUICIDE", "§8%player% §7killed themselves.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_VOID", "§8%player% §7fell out of the world.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_ZOMBIE", "§8%player% §7was munched on by a Zombie.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -138,9 +138,9 @@ public class Core extends JavaPlugin implements Listener {
 
 //  Set DeathMSG Methods
     public void setArrowDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_ARROW", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_ARROW", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -149,9 +149,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setCactusDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_CACTUS", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_CACTUS", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -160,9 +160,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setDrowningDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_DROWNING", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_DROWNING", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -171,9 +171,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setExplosionDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_EXPLOSION", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_EXPLOSION", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -182,9 +182,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setFallingDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_FALLING", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_FALLING", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -193,9 +193,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setFireDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_FIRE", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_FIRE", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -204,9 +204,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setLavaDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_LAVA", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_LAVA", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -215,9 +215,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setLightningDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_LIGHTNING", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_LIGHTNING", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -226,9 +226,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setPlayerDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_PLAYER", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_PLAYER", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -237,9 +237,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setSkeletonDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_SKELETON", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_SKELETON", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -248,9 +248,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setSpiderDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_SPIDER", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_SPIDER", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -259,9 +259,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setSuffocationDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_SUFFOCATION", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_SUFFOCATION", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -270,9 +270,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setSuicideDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_SUICIDE", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_SUICIDE", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -281,9 +281,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setVoidDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_VOID", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_VOID", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -292,9 +292,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void setZombieDeathMSG(Player player, String message) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_ZOMBIE", message);
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_ZOMBIE", message);
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -306,45 +306,45 @@ public class Core extends JavaPlugin implements Listener {
 
 
 //  Get DeathMSG Methods
-    public String getArrowDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_ARROW");}
-    public String getArrowDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_ARROW");}
-    public String getCactusDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_CACTUS");}
-    public String getCactusDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_CACTUS");}
-    public String getDrowningDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_DROWNING");}
-    public String getDrowningDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_DROWNING");}
-    public String getExplosionDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_EXPLOSION");}
-    public String getExplosionDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_EXPLOSION");}
-    public String getFallingDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_FALLING");}
-    public String getFallingDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_FALLING");}
-    public String getFireDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_FIRE");}
-    public String getFireDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_FIRE");}
-    public String getLavaDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_LAVA");}
-    public String getLavaDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_LAVA");}
-    public String getLightningDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_LIGHTNING");}
-    public String getLightningDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_LIGHTNING");}
-    public String getPlayerDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_PLAYER");}
-    public String getPlayerDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_PLAYER");}
-    public String getSkeletonDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_SKELETON");}
-    public String getSkeletonDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_SKELETON");}
-    public String getSpiderDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_SPIDER");}
-    public String getSpiderDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_SPIDER");}
-    public String getSuffocationDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_SUFFOCATION");}
-    public String getSuffocationDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_SUFFOCATION");}
-    public String getSuicideDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_SUICIDE");}
-    public String getSuicideDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_SUICIDE");}
-    public String getVoidDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_VOID");}
-    public String getVoidDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_VOID");}
-    public String getZombieDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_ZOMBIE");}
-    public String getZombieDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName() + ".DEATH_ZOMBIE");}
+    public String getArrowDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_ARROW");}
+    public String getArrowDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_ARROW");}
+    public String getCactusDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_CACTUS");}
+    public String getCactusDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_CACTUS");}
+    public String getDrowningDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_DROWNING");}
+    public String getDrowningDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_DROWNING");}
+    public String getExplosionDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_EXPLOSION");}
+    public String getExplosionDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_EXPLOSION");}
+    public String getFallingDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_FALLING");}
+    public String getFallingDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_FALLING");}
+    public String getFireDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_FIRE");}
+    public String getFireDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_FIRE");}
+    public String getLavaDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_LAVA");}
+    public String getLavaDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_LAVA");}
+    public String getLightningDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_LIGHTNING");}
+    public String getLightningDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_LIGHTNING");}
+    public String getPlayerDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_PLAYER");}
+    public String getPlayerDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_PLAYER");}
+    public String getSkeletonDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_SKELETON");}
+    public String getSkeletonDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_SKELETON");}
+    public String getSpiderDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_SPIDER");}
+    public String getSpiderDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_SPIDER");}
+    public String getSuffocationDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_SUFFOCATION");}
+    public String getSuffocationDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_SUFFOCATION");}
+    public String getSuicideDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_SUICIDE");}
+    public String getSuicideDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_SUICIDE");}
+    public String getVoidDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_VOID");}
+    public String getVoidDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_VOID");}
+    public String getZombieDeathMSG(Player player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_ZOMBIE");}
+    public String getZombieDeathMSG(OfflinePlayer player) {return this.playerDataCFG.getString("Players." + player.getName().toLowerCase() + ".DEATH_ZOMBIE");}
 //  Get DeathMSG Methods
 
 
 
 //  Reset DeathMSG Methods
     public void resetArrowDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_ARROW", "§8%player% §7was gunned down.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_ARROW", "§8%player% §7was gunned down.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -353,9 +353,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetCactusDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_CACTUS", "§8%player% §7hugged a cactus.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_CACTUS", "§8%player% §7hugged a cactus.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -364,9 +364,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetDrowningDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_DROWNING", "§8%player% §7forgot to breath.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_DROWNING", "§8%player% §7forgot to breath.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -375,9 +375,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetExplosionDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_EXPLOSION", "§8%player% §7was hit too hard.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_EXPLOSION", "§8%player% §7was hit too hard.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -386,9 +386,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetFallingDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_FALLING", "§8%player% §7forgot their shoes.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_FALLING", "§8%player% §7forgot their shoes.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -397,9 +397,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetFireDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_FIRE", "§8%player% §7was too hot.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_FIRE", "§8%player% §7was too hot.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -408,9 +408,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetLavaDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_LAVA", "§8%player% §7was too hot.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_LAVA", "§8%player% §7was too hot.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -419,9 +419,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetLightningDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_LIGHTNING", "§8%player% §7was strucked by lightning.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_LIGHTNING", "§8%player% §7was strucked by lightning.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -430,9 +430,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetPlayerDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_PLAYER", "§8%player% §7was brutally murdered by §8%killer%§7.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_PLAYER", "§8%player% §7was brutally murdered by §8%killer%§7.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -441,9 +441,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetSkeletonDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_SKELETON", "§8%player% §7was gunned down.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_SKELETON", "§8%player% §7was gunned down.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -452,9 +452,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetSpiderDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_SPIDER", "§8%player% §7was hit too hard.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_SPIDER", "§8%player% §7was hit too hard.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -463,9 +463,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetSuicideDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_SUICIDE", "§8%player% §7killed themselves.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_SUICIDE", "§8%player% §7killed themselves.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -474,9 +474,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetSuffocationDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_SUFFOCATION", "§8%player% §7forgot to breath.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_SUFFOCATION", "§8%player% §7forgot to breath.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -485,9 +485,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetVoidDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_VOID", "§8%player% §7fell out of the world.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_VOID", "§8%player% §7fell out of the world.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -496,9 +496,9 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
     public void resetZombieDeathMSG(Player player) {
-        if (this.playerDataCFG.getConfigOption("Players." + player.getName()) != null) {
+        if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) != null) {
             try {
-                this.playerDataCFG.setProperty("Players." + player.getName() + ".DEATH_ZOMBIE", "§8%player% §7was munched on by a Zombie.");
+                this.playerDataCFG.setProperty("Players." + player.getName().toLowerCase() + ".DEATH_ZOMBIE", "§8%player% §7was munched on by a Zombie.");
                 this.playerDataCFG.save();
             } catch (Exception ex) {
                 ex.printStackTrace();
