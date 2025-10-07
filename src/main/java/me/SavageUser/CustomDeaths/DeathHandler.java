@@ -23,7 +23,7 @@ public class DeathHandler extends PlayerListener {
     @EventHandler
     public void on(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        if (plugin.playerDataCFG.getProperty("Players." + player.getName()) == null) {
+        if (plugin.playerDataCFG.getProperty("Players." + player.getName().toLowerCase()) == null) {
             plugin.createSettings(player);
         }
     }
