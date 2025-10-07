@@ -84,16 +84,16 @@ public class CommandCDMAdmin implements CommandExecutor {
                             sender.sendMessage("§cUsage: /cdmadmin inspect <player>");
                             return true;
                         }
-                        Player other = Bukkit.getServer().getPlayer(args[1]);
+                        Player other = Bukkit.getServer().getPlayer(args[1].toLowerCase());
 
                         if (other == null) {
-                            OfflinePlayer offline = Bukkit.getServer().getOfflinePlayer(args[1]);
+                            OfflinePlayer offline = Bukkit.getServer().getOfflinePlayer(args[1].toLowerCase());
 
-                            if (plugin.playerDataCFG.getConfigOption("Players." + offline.getName()) == null) {
+                            if (plugin.playerDataCFG.getConfigOption("Players." + offline.getName().toLowerCase()) == null) {
                                 sender.sendMessage("§cPlayer " + offline.getName() + "'s data doesn't exist!");
                                 return true;
                             }
-                            sender.sendMessage("§3-= §b" + offline.getName() + "'s DEATH MSGS §3=-");
+                            sender.sendMessage("§3-= §b" + offline.getName().toUpperCase() + "'s DEATH MSGS §3=-");
                             sender.sendMessage("§dDEATH_ARROW§8: §f" + plugin.getArrowDeathMSG(offline));
                             sender.sendMessage("§dDEATH_CACTUS§8: §f" + plugin.getCactusDeathMSG(offline));
                             sender.sendMessage("§dDEATH_DROWNING§8: §f" + plugin.getDrowningDeathMSG(offline));
@@ -112,11 +112,11 @@ public class CommandCDMAdmin implements CommandExecutor {
                             return true;
                         }
 
-                        if (plugin.playerDataCFG.getConfigOption("Players." + other.getName()) == null) {
+                        if (plugin.playerDataCFG.getConfigOption("Players." + other.getName().toLowerCase()) == null) {
                             sender.sendMessage("§cPlayer " + other.getName() + "'s data doesn't exist!");
                             return true;
                         }
-                        sender.sendMessage("§3-= §b" + other.getName() + "'s DEATH MSGS §3=-");
+                        sender.sendMessage("§3-= §b" + other.getName().toUpperCase() + "'s DEATH MSGS §3=-");
                         sender.sendMessage("§dDEATH_ARROW§8: §f" + plugin.getArrowDeathMSG(other));
                         sender.sendMessage("§dDEATH_CACTUS§8: §f" + plugin.getCactusDeathMSG(other));
                         sender.sendMessage("§dDEATH_DROWNING§8: §f" + plugin.getDrowningDeathMSG(other));
