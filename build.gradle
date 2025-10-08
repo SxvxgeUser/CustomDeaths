@@ -8,4 +8,5 @@ repositories {
 
 dependencies {
     implementation(files("libs/poseidon.jar"))
+    implementation(files("libs/ChatGuard-6.0.1.jar"))
 }
