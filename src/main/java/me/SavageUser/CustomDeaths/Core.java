@@ -1,7 +1,7 @@
 package me.SavageUser.CustomDeaths;
 
 import me.SavageUser.CustomDeaths.CFGUtil.BlacklistCFG;
-import me.SavageUser.CustomDeaths.CFGUtil.Config;
+import me.SavageUser.CustomDeaths.CFGUtil.MainCFG;
 import me.SavageUser.CustomDeaths.CFGUtil.PlayerDataCFG;
 import me.SavageUser.CustomDeaths.Commands.CommandCDM;
 import me.SavageUser.CustomDeaths.Commands.CommandCDMAdmin;
@@ -21,16 +21,17 @@ import java.util.List;
 
 public class Core extends JavaPlugin implements Listener {
 
-    public Config mainCFG;
+    public MainCFG mainCFG;
     public BlacklistCFG blacklistCFG;
     public PlayerDataCFG playerDataCFG;
+    public boolean chatGuard = false;
 
     private File logFile;
     private FileWriter logWriter;
 
     @Override
     public void onEnable() {
-        this.mainCFG = new Config(new File(this.getDataFolder(), "config.yml"));
+        this.mainCFG = new MainCFG(new File(this.getDataFolder(), "config.yml"));
         this.blacklistCFG = new BlacklistCFG(new File(this.getDataFolder(), "blacklist.yml"));
         this.playerDataCFG = new PlayerDataCFG(new File(this.getDataFolder(), "player-data.yml"));
 
@@ -43,8 +44,35 @@ public class Core extends JavaPlugin implements Listener {
 
         List<String> blacklisted = this.blacklistCFG.getStringList("Blacklist", new ArrayList<>());
 
+        StringBuilder stringBuilder = new StringBuilder();
         for (String blacklist : blacklisted) {
-            Bukkit.getServer().getLogger().info("Blacklisted Terms: " + blacklist);
+            if (stringBuilder.length() > 0) {
+                stringBuilder.append(", ");
+            }
+            stringBuilder.append(blacklist.toLowerCase()).append("");
+        }
+        Bukkit.getServer().getLogger().info("[CustomDeaths] Blacklisted Terms: " + stringBuilder.toString());
+
+        if (Bukkit.getServer().getPluginManager().getPlugin("ChatGuard") == null) {
+            Bukkit.getServer().getLogger().severe("[CustomDeaths] ChatGuard not detected, thus discord logging is disabled!");
+        }
+        else {
+            chatGuard = true;
+            Bukkit.getServer().getLogger().info("[CustomDeaths] ChatGuard version " + Bukkit.getServer().getPluginManager().getPlugin("ChatGuard").getDescription().getVersion() + " detected!");
+            Bukkit.getServer().getLogger().info("[CustomDeaths] Integrating discord logging...");
+            if (this.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(false)) {
+                Bukkit.getServer().getLogger().severe("[CustomDeaths] Discord logging via ChatGuard is currently set to 'false'!");
+                Bukkit.getServer().getLogger().severe("[CustomDeaths] Set it to 'true' to finish integrating ChatGuard!");
+            }
+            else {
+                if (ChatGuardUtil.hasWebhookURL()) {
+                    Bukkit.getServer().getLogger().info("[CustomDeaths] Discord logging via ChatGuard integrated and ready to go!");
+                }
+                else {
+                    Bukkit.getServer().getLogger().severe("[CustomDeaths] No webhook URL set in ChatGuard's 'discord.yml' file!");
+                    Bukkit.getServer().getLogger().severe("[CustomDeaths] Paste a valid webhook url in the 'webhook-url' section to integrate ChatGuard!");
+                }
+            }
         }
 
         new CommandCDM(this);
@@ -67,6 +95,7 @@ public class Core extends JavaPlugin implements Listener {
             ex.printStackTrace();
         }
     }
+
 //  Creation Method
     public void createSettings(Player player) {
         if (this.playerDataCFG.getConfigOption("Players." + player.getName().toLowerCase()) == null) {
@@ -507,4 +536,24 @@ public class Core extends JavaPlugin implements Listener {
         }
     }
 //  Reset DeathMSG Methods
+
+
+
+//  Misc
+    public boolean isChatGuardEnabled() {
+        if (Bukkit.getPluginManager().isPluginEnabled("ChatGuard")) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    public void sendStaffMessage(String message) {
+        for (Player all : Bukkit.getOnlinePlayers()) {
+            if (all.isOp() || all.hasPermission("customdeaths.admin") || all.hasPermission("customdeaths.staff")) {
+                all.sendMessage(message);
+            }
+        }
+    }
+//  Misc
 }
