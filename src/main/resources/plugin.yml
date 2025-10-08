@@ -3,9 +3,12 @@ main: me.SavageUser.CustomDeaths.Core
 authors:
   - SavageUser
 version: 1.0
+softdepend:
+  - ChatGuard
 
 commands:
   cdm:
     description: Set up a custom death message for each death type.
   cdmadmin:
+
     description: CustomDeaths admin commands.
