@@ -41,7 +41,11 @@ public class CommandCDMAdmin implements CommandExecutor {
                             return true;
                         }
 
-                        if (blacklisted.contains(args[1])) {
+                        if (args[1].contains("@") || args[1].contains("<") || args[1].contains(">")) {
+                            sender.sendMessage("§cCharacters @, <, > are on the hard coded blacklist!");
+                            return true;
+                        }
+                        else if (blacklisted.contains(args[1])) {
                             sender.sendMessage("§cCharacter " + args[1] + " is already blacklisted!");
                             return true;
                         }
@@ -62,8 +66,11 @@ public class CommandCDMAdmin implements CommandExecutor {
                             sender.sendMessage("§cUsage: /cdmadmin delfromblacklist <character>");
                             return true;
                         }
-
-                        if (!blacklisted.contains(args[1])) {
+                        if (args[1].contains("@") || args[1].contains("<") || args[1].contains(">")) {
+                            sender.sendMessage("§cCharacters @, <, > are on the hard coded blacklist and can't be deleted!");
+                            return true;
+                        }
+                        else if (!blacklisted.contains(args[1])) {
                             sender.sendMessage("§cCharacter " + args[1] + " is not on the blacklist!");
                             return true;
                         }
@@ -94,21 +101,21 @@ public class CommandCDMAdmin implements CommandExecutor {
                                 return true;
                             }
                             sender.sendMessage("§3-= §b" + offline.getName().toUpperCase() + "'s DEATH MSGS §3=-");
-                            sender.sendMessage("§dDEATH_ARROW§8: §f" + plugin.getArrowDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_CACTUS§8: §f" + plugin.getCactusDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_DROWNING§8: §f" + plugin.getDrowningDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_EXPLOSION§8: §f" + plugin.getExplosionDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_FALLING§8: §f" + plugin.getFallingDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_FIRE§8: §f" + plugin.getFireDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_LAVA§8: §f" + plugin.getLavaDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_LIGHTNING§8: §f" + plugin.getLightningDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_PLAYER§8: §f" + plugin.getPlayerDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_SKELETON§8: §f" + plugin.getSkeletonDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_SPIDER§8: §f" + plugin.getSpiderDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_SUFFOCATION§8: §f" + plugin.getSuffocationDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_SUICIDE§8: §f" + plugin.getSuicideDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_VOID§8: §f" + plugin.getVoidDeathMSG(offline));
-                            sender.sendMessage("§dDEATH_ZOMBIE§8: §f" + plugin.getZombieDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_ARROW§5: §f" + plugin.getArrowDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_CACTUS§5: §f" + plugin.getCactusDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_DROWNING§5: §f" + plugin.getDrowningDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_EXPLOSION§5: §f" + plugin.getExplosionDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_FALLING§5: §f" + plugin.getFallingDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_FIRE§5: §f" + plugin.getFireDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_LAVA§5: §f" + plugin.getLavaDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_LIGHTNING§5: §f" + plugin.getLightningDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_PLAYER§5: §f" + plugin.getPlayerDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_SKELETON§5: §f" + plugin.getSkeletonDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_SPIDER§5: §f" + plugin.getSpiderDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_SUFFOCATION§5: §f" + plugin.getSuffocationDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_SUICIDE§5: §f" + plugin.getSuicideDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_VOID§5: §f" + plugin.getVoidDeathMSG(offline));
+                            sender.sendMessage("§dDEATH_ZOMBIE§5: §f" + plugin.getZombieDeathMSG(offline));
                             return true;
                         }
 
@@ -117,21 +124,21 @@ public class CommandCDMAdmin implements CommandExecutor {
                             return true;
                         }
                         sender.sendMessage("§3-= §b" + other.getName().toUpperCase() + "'s DEATH MSGS §3=-");
-                        sender.sendMessage("§dDEATH_ARROW§8: §f" + plugin.getArrowDeathMSG(other));
-                        sender.sendMessage("§dDEATH_CACTUS§8: §f" + plugin.getCactusDeathMSG(other));
-                        sender.sendMessage("§dDEATH_DROWNING§8: §f" + plugin.getDrowningDeathMSG(other));
-                        sender.sendMessage("§dDEATH_EXPLOSION§8: §f" + plugin.getDrowningDeathMSG(other));
-                        sender.sendMessage("§dDEATH_FALLING§8: §f" + plugin.getExplosionDeathMSG(other));
-                        sender.sendMessage("§dDEATH_FIRE§8: §f" + plugin.getFireDeathMSG(other));
-                        sender.sendMessage("§dDEATH_LAVA§8: §f" + plugin.getLavaDeathMSG(other));
-                        sender.sendMessage("§dDEATH_LIGHTNING§8: §f" + plugin.getLightningDeathMSG(other));
-                        sender.sendMessage("§dDEATH_PLAYER§8: §f" + plugin.getPlayerDeathMSG(other));
-                        sender.sendMessage("§dDEATH_SKELETON§8: §f" + plugin.getSkeletonDeathMSG(other));
-                        sender.sendMessage("§dDEATH_SPIDER§8: §f" + plugin.getSpiderDeathMSG(other));
-                        sender.sendMessage("§dDEATH_SUFFOCATION§8: §f" + plugin.getSuffocationDeathMSG(other));
-                        sender.sendMessage("§dDEATH_SUICIDE§8: §f" + plugin.getSuicideDeathMSG(other));
-                        sender.sendMessage("§dDEATH_VOID§8: §f" + plugin.getVoidDeathMSG(other));
-                        sender.sendMessage("§dDEATH_ZOMBIE§8: §f" + plugin.getZombieDeathMSG(other));
+                        sender.sendMessage("§dDEATH_ARROW§5: §f" + plugin.getArrowDeathMSG(other));
+                        sender.sendMessage("§dDEATH_CACTUS§5: §f" + plugin.getCactusDeathMSG(other));
+                        sender.sendMessage("§dDEATH_DROWNING§5: §f" + plugin.getDrowningDeathMSG(other));
+                        sender.sendMessage("§dDEATH_EXPLOSION§5: §f" + plugin.getDrowningDeathMSG(other));
+                        sender.sendMessage("§dDEATH_FALLING§5: §f" + plugin.getExplosionDeathMSG(other));
+                        sender.sendMessage("§dDEATH_FIRE§5: §f" + plugin.getFireDeathMSG(other));
+                        sender.sendMessage("§dDEATH_LAVA§5: §f" + plugin.getLavaDeathMSG(other));
+                        sender.sendMessage("§dDEATH_LIGHTNING§5: §f" + plugin.getLightningDeathMSG(other));
+                        sender.sendMessage("§dDEATH_PLAYER§5: §f" + plugin.getPlayerDeathMSG(other));
+                        sender.sendMessage("§dDEATH_SKELETON§5: §f" + plugin.getSkeletonDeathMSG(other));
+                        sender.sendMessage("§dDEATH_SPIDER§5: §f" + plugin.getSpiderDeathMSG(other));
+                        sender.sendMessage("§dDEATH_SUFFOCATION§5: §f" + plugin.getSuffocationDeathMSG(other));
+                        sender.sendMessage("§dDEATH_SUICIDE§5: §f" + plugin.getSuicideDeathMSG(other));
+                        sender.sendMessage("§dDEATH_VOID§5: §f" + plugin.getVoidDeathMSG(other));
+                        sender.sendMessage("§dDEATH_ZOMBIE§5: §f" + plugin.getZombieDeathMSG(other));
                         return true;
                     }
                     else {
