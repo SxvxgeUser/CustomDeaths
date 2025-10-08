@@ -1,6 +1,11 @@
 package me.SavageUser.CustomDeaths.Commands;
 
+import io.github.aleksandarharalanov.chatguard.core.log.LogType;
+import io.github.aleksandarharalanov.chatguard.core.log.logger.DiscordLogger;
+import io.github.aleksandarharalanov.chatguard.core.security.filter.FilterDetector;
+import me.SavageUser.CustomDeaths.ChatGuardUtil;
 import me.SavageUser.CustomDeaths.Core;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -56,17 +61,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% was gunned down.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm arrow " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -88,17 +99,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% hugged a cactus.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm cactus " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -120,17 +137,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% forgot to breath.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
                                             plugin.logFlaggedCMD(player, "/cdm drowning " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -152,17 +175,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% was hit too hard.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm explosion " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -184,17 +213,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% forgot their shoes.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm falling " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -216,17 +251,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% was too hot.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm fire " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -248,17 +289,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% was too hot.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm lava " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -280,17 +327,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% was struck by lightning.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm lightning " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -317,17 +370,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% was brutally murdered by %killer%.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm player " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -349,17 +408,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% was gunned down by a skeleton.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm skeleton " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -381,17 +446,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% was killed by a spider.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm spider " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -413,17 +484,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% died in the walls.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm suffocation " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -445,17 +522,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% killed themselves.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm suicide " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -477,17 +560,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% fell out of the world.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm void " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
@@ -509,17 +598,23 @@ public class CommandCDM implements CommandExecutor {
                                 player.sendMessage("§cExample: §b%player% was munched on by a Zombie.");
                                 return true;
                             } else {
-                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) {//Hard coded blacklist
+                                if (msg.contains("@") || msg.contains("<") || msg.contains(">")) { // Hard Coded Blacklist
                                     player.sendMessage("§cYou used a symbol thats on the hard coded blacklist!");
                                     player.sendMessage("§cPlease remove it and try the command again!");
                                     return true;
                                 } else {
                                     for (String blacklist : blacklisted) {
-                                        if (msg.toLowerCase().contains(blacklist)) {
+                                        if (msg.toLowerCase().contains(blacklist)) { // Regular Blacklist
                                             player.sendMessage("§cYou used a blacklisted word/symbol!");
                                             player.sendMessage("§cThis has been logged and reported to staff!");
                                             plugin.logFlaggedCMD(player, "/cdm zombie " + msg);
-                                            //Todo: Future Implementation of ChatGuard
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §c" + player.getName() + " used a blacklisted word/symbol!");
+                                            plugin.sendStaffMessage("§4[CustomDeaths] §cWord: §b" + blacklist.toLowerCase());
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] " + player.getName() + " used a blacklisted word/symbol!");
+                                            Bukkit.getServer().getLogger().severe("[CustomDeaths] Word: " + blacklist.toLowerCase());
+                                            if (plugin.isChatGuardEnabled() && ChatGuardUtil.hasWebhookURL() && plugin.mainCFG.getConfigOption("Settings.enableDiscordLogging").equals(true)) { // ChatGuard
+                                                DiscordLogger.log(LogType.CHAT, player, msg, blacklist.toLowerCase());
+                                            }
                                             return true;
                                         }
                                     }
