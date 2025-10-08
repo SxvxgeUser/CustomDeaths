@@ -8,6 +8,12 @@
 - /cdmadmin inspect (player) - Inspect all death messages of a player.
 - /cdmadmin reload - Reloads all config files. (blacklist.yml, config.yml, player-data.yml)
 
+All Death Types: DEATH_ARROW, DEATH_CACTUS, DEATH_DROWNING,
+DEATH_EXPLOSION, DEATH_FALLING, DEATH_FIRE,
+DEATH_LAVA, DEATH_LIGHTNING, DEATH_PLAYER,
+DEATH_SKELETON, DEATH_SPIDER, DEATH_SUFFOCATION,
+DEATH_SUICIDE, DEATH_VOID, DEATH_ZOMBIE
+
 **Permissions:**
 
 `CustomDeaths.CDM` - Permission to use /cdm to change death messages.
