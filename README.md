@@ -13,3 +13,6 @@
 `CustomDeaths.CDM` - Permission to use /cdm to change death messages.
 `CustomDeaths.Admin` - Permission to use all /cdmadmin commands.
 `CustomDeaths.Staff` - Permission to use only /cdmadmin inspect. Useful for mods to find out who has a explicit death message.
+
+**Note:**
+Additionally you can install ChatGuard to have blacklisted words show on discord.
