@@ -69,7 +69,7 @@ public class DeathHandler extends PlayerListener {
                 msg = msg.replace("%player%", player.getName());
                 Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', msg));
             }
-            else if (player.getLastDamageCause().getCause() == EntityDamageEvent.DamageCause.SUICIDE) { // Passed.
+            else if (player.getLastDamageCause().getCause() == EntityDamageEvent.DamageCause.SUICIDE || player.getLastDamageCause().getCause() == EntityDamageEvent.DamageCause.CUSTOM) { // Passed.
                 String msg = plugin.getSuicideDeathMSG(player);
                 msg = msg.replace("%player%", player.getName());
                 Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', msg));
@@ -136,3 +136,4 @@ public class DeathHandler extends PlayerListener {
         }
     }
 }
+
